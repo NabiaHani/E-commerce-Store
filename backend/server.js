@@ -16,7 +16,7 @@ app.get('/', (req,res)=>{
     })
 })
 
-// mongodb connection
+// mongodb connection //
 mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log('Connected to MongoDB');
 }).catch(err => {
