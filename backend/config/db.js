@@ -1,6 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
+// env
 const url = process.env.MONGODB_URL;
 
 if (!url) {
