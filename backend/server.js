@@ -9,6 +9,8 @@ const app = express()
 // middleware
 app.use(express.json())
 app.use(morgan('dev'))
+
+
 // rest api
 app.get('/', (req,res)=>{
     res.send({
