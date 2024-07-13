@@ -2,6 +2,12 @@ require('dotenv').config();
 const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose');
+const connectDB  = require('./config/db');
+const authRoutes  = require('./routes/authRoutes');
+
+
+// database config
+connectDB();
 
 // rest object
 const app = express()
@@ -10,6 +16,9 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
+// routes
+app.use('/api', authRoutes);
+
 
 // rest api
 app.get('/', (req,res)=>{
@@ -17,13 +26,6 @@ app.get('/', (req,res)=>{
         message: 'welcome to our website'
     })
 })
-
-// mongodb connection //
-mongoose.connect(process.env.MONGODB_URL).then(() => {
-    console.log('Connected to MongoDB');
-}).catch(err => {
-    console.error('Failed to connect to MongoDB', err);
-});
 
 // port
 const PORT = process.env.PORT || 8000
