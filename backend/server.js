@@ -4,6 +4,8 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 const connectDB  = require('./config/db');
 const authRoutes  = require('./routes/authRoutes');
+const categoryRoutes = require('./routes/categoryRoutes')
+const cors = require('cors')
 
 
 // database config
@@ -13,11 +15,13 @@ connectDB();
 const app = express()
 
 // middleware
+app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
 // routes
 app.use('/api', authRoutes);
+app.use('/category', categoryRoutes);
 
 
 // rest api
