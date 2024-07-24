@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "antd": "^5.19.2",
     "axios": "^1.7.2",
     "concurrently": "^8.2.2",
     "context": "^3.0.29",

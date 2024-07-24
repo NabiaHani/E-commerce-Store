@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { registerController, loginController, testController, forgotPasswordController } = require('../controller/authController');
 const { requireSignIn, isAdmin } = require('../middlewares/authMiddleware'); // Correct import statement
+// const jwt = require('jsonwebtoken');
+
 
 // REGISTER || method post
 router.post('/register', registerController);
